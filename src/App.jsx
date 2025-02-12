@@ -1,35 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import RItem from "./Requirement/RItem";
+import RForm from "./Requirement/RForm";
+const App = () => {
+  const project = {
+    title: "My First Project",
+    id: "12341234123",
+    requirements: [],
+  };
+  const [requirements, setRequirements] = useState([
+    {
+      funcName: "sadsfsdf",
+      funcPage: "sadsfsdf",
+      id: "1",
+      status: "sadsfsdf",
+      details: ["ssdfsfsdf"],
+    },
+    {
+      funcName: "sadsfsdf",
+      funcPage: "sadsfsdf",
+      id: "2",
+      status: "sadsfsdf",
+      details: ["ssdfsfsdf"],
+    },
+    {
+      funcName: "sadsfsdf",
+      funcPage: "sadsfsdf",
+      id: "3",
+      status: "sadsfsdf",
+      details: ["ssdfsfsdf"],
+    },
+  ]);
 
-function App() {
-  const [count, setCount] = useState(0)
+  const [isAdding, setIsAdding] = useState(false);
+  const onCancel = () => setIsAdding(false);
+  const onStart = () => {
+    setIsAdding(true);
+  };
 
+  // useEffect(() => {
+  //   console.log(requirement)
+  //   console.log(detail)
+  // }, [requirement, detail])
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+    <div>
+      <h1>Project Name: {project.title}</h1>
+      <p>Project Id: {project.id}</p>
+      <ul>
+        {requirements.map((r, index) => {
+          return (
+            <RItem
+              r={r}
+              index={index}
+              key={r.id}
+              requirements={requirements}
+              setRequirements={setRequirements}
+            />
+          );
+        })}
+      </ul>
+      {!isAdding ? (
+        <button onClick={onStart}>요구사항 추가하기</button>
+      ) : (
+        <RForm
+          requirements={requirements}
+          setRequirements={setRequirements}
+          onCancel={onCancel}
+          status={isAdding}
+        />
+      )}
+    </div>
+  );
+};
+export default App;
