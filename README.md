@@ -1,8 +1,21 @@
-# React + Vite
+# 장보기 목록 만들기 (Todo app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Container 만들기
 
-Currently, two official plugins are available:
+   - 관리할 상태를 정의합니다
+   - todos => useState
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Form 만들기
+
+   - todos, setTodos를 받아오기
+   - todo => useState
+   - **대용내용** Create뿐만 아니라 Update 상항도 고려해야함 - payload 받아와서 수정할떄만 todo초기값을 변경 - 수정하는 상황을 구별할 boolean 받아오기
+
+3. Item 만들기 (Read)
+
+   - todos의 todo를 출력하면 됨
+   - 수정 버튼을 눌렀을 때 Form을 그려주면됨
+   - **주의**: payload로 todo전달, 수정하는 boolean전달
+
+   - 삭제 기능도 필요함
+   - todo, todos, setTodos를 받아와야 함
