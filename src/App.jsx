@@ -1,7 +1,19 @@
+import "./style.css";
+import { useState } from "react";
+import TodoForm from "./TodoForm";
+import TodoItem from "./TodoItem";
+
 const App = () => {
+  const [todos, setTodos] = useState([]);
+
   return (
     <div>
-      <h1>App</h1>
+      <TodoForm />
+      <ul>
+        <TodoItem />
+        <TodoItem />
+        <TodoItem />
+      </ul>
     </div>
   );
 };
