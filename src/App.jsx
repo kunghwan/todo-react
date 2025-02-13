@@ -1,6 +1,6 @@
 import { useState } from "react";
-import RItem from "./Requirement/RItem";
-import RForm from "./Requirement/RForm";
+import TodoItem from "./Requirement/TodoItem";
+import TodoForm from "./Requirement/TodoForm";
 const App = () => {
   const project = {
     title: "My First Project",
@@ -48,7 +48,7 @@ const App = () => {
       <ul>
         {requirements.map((r, index) => {
           return (
-            <RItem
+            <TodoItem
               r={r}
               index={index}
               key={r.id}
@@ -61,7 +61,7 @@ const App = () => {
       {!isAdding ? (
         <button onClick={onStart}>요구사항 추가하기</button>
       ) : (
-        <RForm
+        <TodoForm
           requirements={requirements}
           setRequirements={setRequirements}
           onCancel={onCancel}
