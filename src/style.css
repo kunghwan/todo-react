@@ -35,6 +35,8 @@ form label {
 
 form input {
   border: 1px solid;
+  display: flex;
+
   border-radius: 4px;
   height: 40px;
   padding: 0 10px;
