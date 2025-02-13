@@ -12,11 +12,19 @@ const App = () => {
   // }, [requirement, detail])
   return (
     <div>
-      <TodoForm />
+      <TodoForm todos={todos} setTodos={setTodos} />
       <ul>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+        {todos.map((todo, index) => {
+          return (
+            <TodoItem
+              key={todo}
+              payload={todo}
+              setTodos={setTodos}
+              todos={todos}
+              index={index}
+            />
+          );
+        })}
       </ul>
     </div>
   );
